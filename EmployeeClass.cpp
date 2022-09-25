@@ -12,7 +12,9 @@ using namespace std;
 
 class Employee //class identity
 {
-private:
+	// Private is only accessible from public and private of this class
+	// Cannot access directly from main
+private:		
 	string name;
 	int idNumber;
 	string department;
@@ -21,7 +23,12 @@ private:
 
 
 public:
-	
+	//This is where you put any functions that will need to be used
+	//You also put any constructors and/or deconstructors 
+	//Constructors determine if certain variables are not defined in main
+
+	//This is first constructor that pulls the varables below and assigns them to 
+	//the variale that will be in main function
 	Employee(string empName, int empID, string empDept, string empPosition)
 	{
 		name = empName;
@@ -30,7 +37,8 @@ public:
 		position = empPosition;
 
 	}
-
+	//this is another function that will pill name and id
+	// if not dept or position then it will assign them blank
 	Employee(string empName, int empID)
 	{
 		name = empName;
@@ -38,6 +46,7 @@ public:
 		department = "";
 		position = "";
 	}
+	//this is if nothing is given from client so everything is blank or 0
 	Employee()
 	{
 		name = "";
@@ -45,6 +54,8 @@ public:
 		department = "";
 		position = "";
 	}
+	// These functions will allow us to display the data we have
+	//since we cannot pull directly from private class
 	string const getName()
 	{
 		return name;
@@ -73,12 +84,16 @@ int main()
 {
 	 
 	
-	const int NUM = 3;
+	const int NUM = 3;	//const for array
+	//array of employees
 	Employee emp[NUM] = 
 	{
-		Employee("Susan Meyers", 47899, "Accounting", "President"),
-		Employee("Mark Jones", 39119, "IT", "Programmer"),
-		Employee("Joy Rogers", 81774, "Manufacturing", "Engineer")
+	//emp1	
+	Employee("Susan Meyers", 47899, "Accounting", "President"),
+	//emp2	
+	Employee("Mark Jones", 39119, "IT", "Programmer"),
+	//emp3	
+	Employee("Joy Rogers", 81774, "Manufacturing", "Engineer")
 	};
 	
 	
